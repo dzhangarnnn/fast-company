@@ -3,12 +3,10 @@ import api from '../api';
 
 const Users = () => {
     const [users, setUsers] = useState(api.users.fetchAll());
-
     const getQualitieClasses = (qualitie) => {
         let classes = `badge m-2 bg-${qualitie.color}`
         return classes;
     };
-
     const renderQualitiesBadges = (user) => {
         return user.qualities.map((qualitie) => (
            
@@ -20,7 +18,6 @@ const Users = () => {
             </span>
         ))
     };
-
     const renderUsersRows = () => {
         return users.map((user) => (
             <tr key={user._id}>
@@ -41,7 +38,6 @@ const Users = () => {
 
         ));
     };
-
     const handleDelete = (userId) => {
         setUsers(prevState => prevState.filter((user) => user._id !== userId));
     };
@@ -56,7 +52,6 @@ const Users = () => {
             return (<span className="badge bg-danger">Никто с тобой не тусанет</span>)
         }
     };    
-
     const renderTable = () => {
         if (users.length !== 0) {
             return  (<table className="table">
